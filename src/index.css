@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: 'Wave';
+  src: url('/fonts/LTWave-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Langits';
+  src: url('/fonts/langits.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+--animate-infinite-ribbon: infinite-ribbon var(--ribbon-duration) linear
+  infinite;
+--animate-infinite-ribbon-reverse: infinite-ribbon-reverse
+  var(--ribbon-duration) linear infinite;
+ 
+@keyframes infinite-ribbon {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+ 
+@keyframes infinite-ribbon-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+*{
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,51 @@
+.bottom-nav {
+  transition: transform 0.3s ease;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  padding: 0 10px;
+  z-index: 300;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #ffffff; /* White text */
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px;
+  transition: all 0.2s ease;
+}
+
+.nav-item.active {
+  color: #f87171; /* Lighter red for active state */
+}
+
+.nav-item.active .nav-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(248, 113, 113, 0.5); /* Red glow for active */
+}
+
+.nav-icon {
+  margin-bottom: 4px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-label {
+  text-align: center;
+}
+
+.nav-item:hover .nav-icon {
+  transform: scale(1.05);
+}
+
+@media (min-width: 640px) {
+  .bottom-nav {
+    display: none; /* Hidden on sm and above */
+  }
+}

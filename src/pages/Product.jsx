@@ -110,16 +110,16 @@ const Product = () => {
   }
 
   return (
-    <div className="bg-black pt-20 h-[400vh] md:h-[310vh] flex items-center">
-      <BackgroundLines className="flex items-center justify-center w-full h-full flex-col px-4">
+    <div className="bg-black pt-32 md:pt-20 h-[400vh] md:h-[310vh] flex items-start md:items-center">
+      <BackgroundLines className="flex items-start md:items-center justify-center w-full h-full flex-col px-4 md:px-4">
         {/* Hero Section with Tabs */}
-        <div className="min-h-screen flex flex-col items-center justify-center text-center max-w-6xl mx-auto z-40 py-12 md:py-20">
+        <div className="min-h-screen flex flex-col items-center justify-start md:justify-center text-center max-w-6xl mx-auto z-40 py-8 md:py-20">
           
           {/* Product Tabs */}
-          <div className="mb-12 flex bg-gray-900/50 backdrop-blur-sm rounded-2xl p-2 border border-gray-700">
+          <div className="mb-8 md:mb-12 flex bg-gray-900/50 backdrop-blur-sm rounded-2xl p-2 border border-gray-700 w-full max-w-md">
             <button
               onClick={() => setActiveTab('yaadro')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-sm md:text-base ${
                 activeTab === 'yaadro'
                   ? 'bg-red-600 text-white shadow-lg'
                   : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
@@ -129,7 +129,7 @@ const Product = () => {
             </button>
             <button
               onClick={() => setActiveTab('lens')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+              className={`flex-1 px-4 md:px-8 py-3 rounded-xl font-semibold transition-all duration-300 text-sm md:text-base ${
                 activeTab === 'lens'
                   ? 'bg-red-600 text-white shadow-lg'
                   : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
@@ -139,11 +139,11 @@ const Product = () => {
             </button>
           </div>
 
-          <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-3xl md:text-5xl lg:text-7xl font-sans py-4 md:py-8 relative z-20 font-bold tracking-wider transition-all duration-700 ease-in-out transform">
+          <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-5xl lg:text-7xl font-sans py-2 md:py-8 relative z-20 font-bold tracking-wide md:tracking-wider transition-all duration-700 ease-in-out transform px-4">
             Welcome To <br /> <span className="inline-block transition-all duration-700 ease-in-out">{products[activeTab].name}</span>
           </h2>
           
-          <p className="max-w-2xl mx-auto text-base md:text-xl text-neutral-700 dark:text-neutral-400 text-center mb-8 transition-all duration-700 ease-in-out opacity-100 transform">
+          <p className="max-w-xs md:max-w-2xl mx-auto text-sm md:text-xl text-neutral-700 dark:text-neutral-400 text-center mb-6 md:mb-8 px-4 transition-all duration-700 ease-in-out opacity-100 transform">
             {products[activeTab].description}
           </p>
           
@@ -159,46 +159,46 @@ const Product = () => {
         </div>
 
         {/* Description Section */}
-        <div className="w-full max-w-6xl mx-auto py-20 md:py-32 px-6 md:px-8">
-          <div className="text-center mb-20 transition-all duration-700 ease-in-out">
-            <h3 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-600 mb-8 transition-all duration-700 ease-in-out">
+        <div className="w-full max-w-6xl mx-auto py-12 md:py-32 px-4 md:px-8">
+          <div className="text-center mb-12 md:mb-20 transition-all duration-700 ease-in-out">
+            <h3 className="text-2xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-400 to-red-600 mb-4 md:mb-8 px-2 md:px-0 transition-all duration-700 ease-in-out">
               🚀 What is {products[activeTab].name}?
             </h3>
-            <p className="text-xl md:text-2xl text-neutral-300 max-w-5xl mx-auto leading-relaxed transition-all duration-700 ease-in-out">
+            <p className="text-sm md:text-2xl text-neutral-300 max-w-xs md:max-w-5xl mx-auto leading-relaxed transition-all duration-700 ease-in-out px-2 md:px-0">
               {products[activeTab].content}
             </p>
           </div>
 
           {/* Features Preview */}
-          <div className="mb-20 transition-all duration-700 ease-in-out">
-            <h4 className="text-3xl md:text-4xl font-bold text-center text-white mb-6 transition-all duration-700 ease-in-out">
+          <div className="mb-12 md:mb-20 transition-all duration-700 ease-in-out">
+            <h4 className="text-2xl md:text-4xl font-bold text-center text-white mb-4 md:mb-6 transition-all duration-700 ease-in-out px-2 md:px-0">
               🔑 Key Features
             </h4>
-            <p className="text-center text-neutral-400 mb-16 text-lg transition-all duration-700 ease-in-out">
+            <p className="text-center text-neutral-400 mb-8 md:mb-16 text-sm md:text-lg transition-all duration-700 ease-in-out px-2 md:px-0">
               {activeTab === 'yaadro' ? 'Everything you need for efficient delivery management' : 'Advanced face recognition for attendance management'}
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 transition-all duration-700 ease-in-out">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 transition-all duration-700 ease-in-out">
               {products[activeTab].features.map((feature, index) => (
                 <div 
                   key={`${activeTab}-${index}`}
-                  className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 hover:border-red-500/50 transition-all duration-500 hover:shadow-lg hover:shadow-red-500/10 relative overflow-hidden group animate-fadeInUp"
+                  className="bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 md:p-8 hover:border-red-500/50 transition-all duration-500 hover:shadow-lg hover:shadow-red-500/10 relative overflow-hidden group animate-fadeInUp"
                   style={{
                     animationDelay: `${index * 100}ms`,
                     animationFillMode: 'both'
                   }}
                 >
                   
-                  <div className="flex items-start space-x-6">
+                  <div className="flex items-start space-x-4 md:space-x-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-700 rounded-xl flex items-center justify-center text-white">
+                      <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-red-500 to-red-700 rounded-xl flex items-center justify-center text-white">
                         {feature.icon}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h5 className="text-xl font-semibold text-white mb-3">
+                      <h5 className="text-base md:text-xl font-semibold text-white mb-2 md:mb-3">
                         {feature.title}
                       </h5>
-                      <p className="text-neutral-400 text-base leading-relaxed">
+                      <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
                         {feature.description}
                       </p>
                     </div>

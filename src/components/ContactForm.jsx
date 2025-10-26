@@ -21,7 +21,27 @@ const TerminalForm = () => {
   // Email validation function
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    
+    // First check basic email format
+    if (!emailRegex.test(email)) {
+      return false;
+    }
+    
+    // Extract domain part after @
+    const domain = email.split('@')[1];
+    
+    // Check for specific allowed domains
+    const allowedDomains = ['google', 'icloud', 'outlook'];
+    
+    // Check if domain starts with allowed domains
+    const isAllowedDomain = allowedDomains.some(allowedDomain => 
+      domain.toLowerCase().startsWith(allowedDomain.toLowerCase())
+    );
+    
+    // Check if it's a company domain (more than 3 characters and not in allowed list)
+    const isCompanyDomain = domain.length > 3 && !isAllowedDomain;
+    
+    return isAllowedDomain || isCompanyDomain;
   };
 
   // Live validation for email
@@ -72,7 +92,7 @@ const TerminalForm = () => {
       return (
         <div className="flex items-center mb-2">
           <span className="text-red-400 mr-2">✗</span>
-          <span className="text-red-400 text-xs">Invalid email format</span>
+          <span className="text-red-400 text-xs">Only Google, iCloud, Outlook, or company emails allowed</span>
         </div>
       );
     }
@@ -286,11 +306,11 @@ const TerminalForm = () => {
         {/* Footer */}
         <div className="text-center mt-4 sm:mt-6 text-gray-400 text-xs sm:text-sm px-2">
           <div className="hidden sm:block">
-            Press Tab to navigate • Enter to submit • Valid email required to proceed
+            Press Tab to navigate • Enter to submit • Google/iCloud/Outlook/Company email required
           </div>
           <div className="sm:hidden space-y-1">
             <div>Enter to submit</div>
-            <div>Valid email required</div>
+            <div>Google/iCloud/Outlook/Company email required</div>
           </div>
         </div>
       </div>

@@ -69,7 +69,7 @@ export default function Footer() {
       </Container>
       <Container className="afterFooter">
         <Text c="dimmed" size="sm">
-          © 2020 mantine.dev. All rights reserved.
+          © 2025 Codeteak
         </Text>
 
         <Group gap={0} className="social" justify="flex-end" wrap="nowrap">

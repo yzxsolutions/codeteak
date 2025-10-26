@@ -144,7 +144,7 @@ const types = [
       <div className="lg:hidden bg-white shadow-sm border-b sticky top-0 z-40">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between mb-3">
-            <h1 className="text-xl font-bold font-wave text-gray-900">Codeteak Services</h1>
+            <h1 className="text-2xl font-bold font-wave text-gray-900">Codeteak Services</h1>
             <button
               onClick={() => setShowFilters(!showFilters)}
               className="flex items-center space-x-2 px-3 py-2 bg-red-600 text-white rounded-lg text-sm font-medium"
@@ -170,10 +170,10 @@ const types = [
 
       <div className="flex">
         {/* Desktop Sidebar */}
-        <div className={`${isMobile ? 'hidden' : 'block'} w-80 bg-white/90 backdrop-blur-sm shadow-lg h-screen sticky top-0 overflow-y-auto border-r border-gray-200`}>
-          <div className="p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-bold text-gray-900">Filters</h2>
+        <div className={`${isMobile ? 'hidden' : 'block'} w-80 bg-white/95 backdrop-blur-sm shadow-xl h-screen sticky top-0 overflow-y-auto border-r border-gray-200`}>
+          <div className="p-8">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-xl font-bold text-gray-900">Filters</h2>
               <button
                 onClick={clearAllFilters}
                 className="text-sm text-red-600 hover:text-red-800 font-medium"
@@ -257,13 +257,13 @@ const types = [
         )}
 
         {/* Main Content */}
-        <div className="flex-1 p-4 lg:p-8">
+        <div className="flex-1 p-6 lg:p-12">
           {/* Desktop Header */}
-          <div className="hidden lg:block mb-8">
+          <div className="hidden lg:block mb-12">
             <div className="flex justify-between items-center">
               <div>
-                <h1 className="text-4xl font-bold text-gray-900 mb-2">Our IT Services</h1>
-                <p className="text-gray-600">Showing {filteredServices.length} of {itServicesData.length} services</p>
+                <h1 className="text-5xl font-bold text-gray-900 mb-4 leading-tight">Our IT Services</h1>
+                <p className="text-lg text-gray-600 font-medium">Showing {filteredServices.length} of {itServicesData.length} services</p>
               </div>
               
               <div className="flex items-center space-x-4">
@@ -289,15 +289,15 @@ const types = [
 
           {/* Mobile Results Count */}
           <div className="lg:hidden mb-4 px-4">
-            <p className="text-sm text-gray-600">Showing {filteredServices.length} of {itServicesData.length} services</p>
+            <p className="text-base text-gray-600 font-medium">Showing {filteredServices.length} of {itServicesData.length} services</p>
           </div>
 
           {/* Services Grid */}
-          <div className={`grid gap-4 lg:gap-6 ${
+          <div className={`grid gap-6 lg:gap-8 ${
             isMobile 
               ? 'grid-cols-1' 
               : viewMode === 'grid' 
-                ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+                ? 'grid-cols-1 md:grid-cols-2 xl:grid-cols-3' 
                 : 'grid-cols-1'
           }`}>
             {filteredServices.map((service, index) => {
@@ -305,45 +305,43 @@ const types = [
               return (
                 <div 
                   key={service.id}
-                  className={`bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-lg transition-all duration-300 ${
+                  className={`group bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-red-200 transition-all duration-500 hover:-translate-y-1 ${
                     isMobile 
-                      ? 'p-4' 
+                      ? 'p-6' 
                       : viewMode === 'list' 
-                        ? 'p-6 flex items-center space-x-6' 
-                        : 'p-6'
+                        ? 'p-8 flex items-center space-x-8' 
+                        : 'p-8'
                   }`}
                 >
                   {/* Mobile Card Layout */}
                   {isMobile ? (
                     <>
-                      <div className="flex items-start space-x-3 mb-3">
-                        <div className="bg-red-100 p-2 rounded-lg flex-shrink-0">
-                          <IconComponent className="w-5 h-5 text-red-600" />
+                      <div className="flex items-start space-x-4 mb-6">
+                        <div className="bg-gradient-to-br from-red-50 to-red-100 p-3 rounded-xl flex-shrink-0 shadow-sm">
+                          <IconComponent className="w-6 h-6 text-red-600" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-gray-900 text-sm mb-1 truncate">{service.title}</h3>
-                          <div className="flex items-center space-x-2 text-xs text-gray-500 mb-1">
-                            <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">{service.category}</span>
-                            <span>{service.type}</span>
+                          <h3 className="font-bold text-gray-900 text-lg mb-2 leading-tight">{service.title}</h3>
+                          <div className="flex items-center space-x-3 text-sm">
+                            <span className="bg-gradient-to-r from-red-100 to-red-50 text-red-700 px-3 py-1.5 rounded-full font-semibold text-xs">{service.category}</span>
+                            <span className="text-gray-500 font-medium">{service.type}</span>
                           </div>
-                         
                         </div>
-                        
                       </div>
                       
-                      <p className="text-xs text-gray-600 mb-3 line-clamp-2">{service.description}</p>
+                      <p className="text-sm text-gray-600 mb-6 leading-relaxed line-clamp-3">{service.description}</p>
                       
-                      <div className="mb-3">
-                        <h4 className="text-xs font-semibold text-gray-900 mb-2">Key Benefits</h4>
-                        <div className="space-y-1">
+                      <div className="mb-6">
+                        <h4 className="text-sm font-bold text-gray-900 mb-3 tracking-wide">Key Benefits</h4>
+                        <div className="space-y-2">
                           {service.benefits.slice(0, 2).map((benefit, idx) => (
-                            <div key={idx} className="flex items-start text-xs">
-                              <Check className="w-3 h-3 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                              <span className="text-gray-600 line-clamp-1">{benefit}</span>
+                            <div key={idx} className="flex items-start text-sm">
+                              <Check className="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                              <span className="text-gray-600 leading-relaxed">{benefit}</span>
                             </div>
                           ))}
                           {service.benefits.length > 2 && (
-                            <div className="text-xs text-red-600 font-medium">
+                            <div className="text-sm text-red-600 font-semibold mt-2">
                               +{service.benefits.length - 2} more benefits
                             </div>
                           )}
@@ -354,7 +352,7 @@ const types = [
                       
                       <button
                         onClick={() => openModal(service)}
-                        className="w-full bg-red-600 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-red-700 transition-colors"
+                        className="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-6 rounded-xl text-sm font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl"
                       >
                         View Details
                       </button>
@@ -363,37 +361,36 @@ const types = [
                     /* Desktop Card Layout */
                     <>
                       <div className={`${viewMode === 'list' ? 'flex-shrink-0' : ''}`}>
-                        <div className="flex items-center mb-4">
-                          <div className="bg-red-100 p-3 rounded-xl mr-4">
-                            <IconComponent className="w-6 h-6 text-red-600" />
+                        <div className="flex items-start mb-6">
+                          <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-2xl mr-6 shadow-sm">
+                            <IconComponent className="w-8 h-8 text-red-600" />
                           </div>
-                          <div>
-                            <h3 className="font-bold text-gray-900 text-lg">{service.title}</h3>
-                            <div className="flex items-center space-x-2 mt-1">
-                              <span className="text-sm bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">{service.category}</span>
-                              <span className="text-sm text-gray-500">{service.type}</span>
+                          <div className="flex-1">
+                            <h3 className="font-bold text-gray-900 text-xl mb-3 leading-tight">{service.title}</h3>
+                            <div className="flex items-center space-x-3">
+                              <span className="text-sm bg-gradient-to-r from-red-100 to-red-50 text-red-700 px-3 py-1.5 rounded-full font-semibold">{service.category}</span>
+                              <span className="text-sm text-gray-500 font-medium">{service.type}</span>
                             </div>
-                           
                           </div>
                         </div>
                       </div>
 
                       <div className={`${viewMode === 'list' ? 'flex-1' : ''}`}>
-                        <p className={`text-gray-600 text-sm mb-4 ${viewMode === 'list' ? '' : 'line-clamp-3'}`}>
+                        <p className={`text-gray-600 text-base mb-6 leading-relaxed ${viewMode === 'list' ? '' : 'line-clamp-3'}`}>
                           {service.description}
                         </p>
 
-                        <div className="mb-4">
-                          <h4 className="font-semibold text-gray-900 mb-2">Key Benefits</h4>
-                          <div className="space-y-2">
+                        <div className="mb-6">
+                          <h4 className="font-bold text-gray-900 mb-4 text-lg tracking-wide">Key Benefits</h4>
+                          <div className="space-y-3">
                             {service.benefits.slice(0, viewMode === 'list' ? 2 : 3).map((benefit, idx) => (
                               <div key={idx} className="flex items-start">
-                                <Check className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                <span className="text-sm text-gray-600">{benefit}</span>
+                                <Check className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                                <span className="text-gray-600 leading-relaxed">{benefit}</span>
                               </div>
                             ))}
                             {service.benefits.length > (viewMode === 'list' ? 2 : 3) && (
-                              <div className="text-sm text-red-600 font-medium">
+                              <div className="text-red-600 font-semibold mt-2">
                                 +{service.benefits.length - (viewMode === 'list' ? 2 : 3)} more benefits
                               </div>
                             )}
@@ -404,10 +401,10 @@ const types = [
                       <div className={`${viewMode === 'list' ? 'flex-shrink-0 text-right' : ''}`}>
                         <button
                           onClick={() => openModal(service)}
-                          className={`bg-red-600 text-white py-2 px-6 rounded-lg font-medium hover:bg-red-700 transition-colors flex items-center justify-center ${viewMode === 'list' ? 'w-auto' : 'w-full'}`}
+                          className={`bg-gradient-to-r from-red-600 to-red-700 text-white py-3 px-8 rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center ${viewMode === 'list' ? 'w-auto' : 'w-full'}`}
                         >
                           View Details
-                          <ArrowRight className="w-4 h-4 ml-2" />
+                          <ArrowRight className="w-5 h-5 ml-2" />
                         </button>
                       </div>
                     </>
@@ -418,12 +415,12 @@ const types = [
           </div>
 
           {filteredServices.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-gray-400 text-xl font-semibold mb-2">No services found</div>
-              <p className="text-gray-500 mb-4">Try adjusting your filters to see more services.</p>
+            <div className="text-center py-16">
+              <div className="text-gray-400 text-2xl font-bold mb-4">No services found</div>
+              <p className="text-gray-500 mb-8 text-lg">Try adjusting your filters to see more services.</p>
               <button
                 onClick={clearAllFilters}
-                className="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition-colors"
+                className="bg-gradient-to-r from-red-600 to-red-700 text-white px-8 py-3 rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Clear All Filters
               </button>

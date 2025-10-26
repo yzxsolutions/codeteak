@@ -4,8 +4,8 @@ import { Group, Box, ThemeIcon } from '@mantine/core';
 import {
   IconHome2,
   IconSettings,
-  IconBriefcase,
   IconPackage,
+  IconMail,
 } from '@tabler/icons-react';
 import './css/BottomNav.css';
 
@@ -13,7 +13,7 @@ const navItems = [
   { label: 'Home', icon: IconHome2, path: '/' },
   { label: 'Services', icon: IconSettings, path: '/services' },
   { label: 'Products', icon: IconPackage, path: '/product' },
-  { label: 'Career', icon: IconBriefcase, path: '/career' },
+  { label: 'Contact', icon: IconMail, path: '/contact' },
 ];
 
 export default function BottomNav() {
